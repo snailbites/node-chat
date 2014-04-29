@@ -1,0 +1,97 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import "compass/css3/box-shadow";
+
+$sidebar-width: 250px;
+
+.clear {
+    clear: both;
+}
+
+html,body{
+    height: 100%;
+}
+input {
+    height: 35px;
+    width: 400px;
+    font: 14px Georgia, serif;
+    padding: 0 5px;
+    border: 1px solid #CCC;
+    margin: 0;
+}
+button {
+    text-transform: uppercase;
+    height: 35px;
+    background-color: #26201e;
+    border: 0 none;
+    cursor: pointer;
+    letter-spacing: 1px;
+    margin: 0 0 0 10px;
+    padding: 0 10px;
+    color: #FFF;
+    &:hover {
+        background-color: #777;
+    }
+}
+#userlist {
+    padding: 50px 30px 0;
+    color: #FFF;
+    font: Times, serif;
+    opacity: .75;
+    h2 {
+        border-bottom: 1px solid #CCC;
+        font-size: 18px;
+        font-style: italic;
+        padding-bottom: 5px;
+        margin-bottom: 10px;
+    }
+    p {
+        font-size: 15px;
+        margin-bottom: 5px;
+    }
+}
+
+#sidebar {
+    min-height: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: $sidebar-width;
+    float: left;
+    background: #26201e url('/images/sidebar-bg.png') repeat 0 0;
+    @include box-shadow(#000 2px 0 3px);
+    .logo {
+        padding: 30px;
+        width: 185px;
+    }
+}
+#chat {
+    font: 14px Georgia, serif;
+    margin-left: $sidebar-width;
+    padding: 20px;
+    width: auto;
+    .pseudo {
+        font-weight: bold;
+    }
+    #chatEntries {
+        width: auto;
+        border: 3px solid black;
+        min-height: 275px;
+        max-height: 500px;
+        overflow-y: scroll;
+        margin-bottom: 10px;
+        padding: 15px;
+        .message {
+            margin-bottom: 5px;
+        }
+        em {
+            font-style: italic;
+        }
+    }
+}
+

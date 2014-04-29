@@ -1,0 +1,54 @@
+<doctype html>
+<html>
+    <head>
+        <title>Team Central Chat</title>
+        <link rel="stylesheet" href="/css/stylesheets/screen.css">
+        <link rel="stylesheet" href="/css/libs/prettify.css">
+    </head>
+    <body>
+        <aside id="sidebar">
+            <header>
+                <img class="logo" src="/images/logo.png">
+            </header>
+            <section id="userlist">
+                <h2>Who's here</h2>
+            </section>
+        </aside>
+        <article id="chat">
+            <section id="chatEntries"></section>
+            <section id="chatControls">
+                <input id="messageInput" type="text" placeholder="Type your message and press enter">
+                <button id="submit">Send</button>
+            <div class="clear"></div>
+        </article>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/js/client.js"></script>
+    </body>
+    <!-- Make sure to remove this in production -->
+    <!-- include it above the </body> tag -->
+    <script>
+    /*
+    var ws;
+    function socket() {
+      ws = new WebSocket("ws://127.0.0.1:8080");
+      ws.onmessage = function ( e ) {
+        var data = JSON.parse(e.data);
+        if ( data.r ) {
+          location.reload();
+        }
+      };
+    }
+    setInterval(function () {
+      if ( ws ) {
+        if ( ws.readyState !== 1 ) {
+          socket();
+        }
+      } else {
+        socket();
+      }
+    }, 1000);
+    */
+    </script>
+</html>

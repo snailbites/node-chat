@@ -1,0 +1,23 @@
+doctype html
+html
+    head
+        title Team Central Chat
+        link(rel='stylesheet', href='/css/stylesheets/screen.css')
+        link(rel='stylesheet', href='/css/libs/prettify.css')
+    body
+        aside#sidebar
+            header
+                img(src='/images/logo.png').logo
+        article#chat
+            header
+            div#chatEntries
+            div#chatControls
+                input(type='text' placeholder='Type your message and press enter')#messageInput
+                button#submit Send
+                //input(type='checkbox')#code
+        div.clear
+
+        script(src = "https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js")
+        script(src = "/socket.io/socket.io.js")
+        script(src = "/js/run_prettify.js?autoload=true&amp;skin=sunburst&amp;lang=css" defer="defer")
+        script(src = "script.js")
