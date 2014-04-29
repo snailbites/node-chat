@@ -1,5 +1,3 @@
-chat
-====
 # Team Chat
 
 ## Getting Started
