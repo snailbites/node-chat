@@ -6,7 +6,7 @@ function displayMsg(msg, pseudo){
     $('#chatEntries').append(
         '<div class="message last"><span class="pseudo">'
         + pseudo
-        + '</span>: <span class="msg">' + msg + '</span></div>'
+        + '</span>: <span class="msg">' + sanitizeHtml(msg) + '</span></div>'
     );
     $("#chatEntries").scrollTop($("#chatEntries")[0].scrollHeight);
 }
@@ -26,6 +26,14 @@ function playSound(){
 
 function translateToLinks(msg){
     // return msg with link
+}
+
+// TODO: load this via browserify
+function sanitizeHtml (string) {
+  return string.replace(/</g, '&lt;')
+               .replace(/>/g, '&gt;')
+               .replace(/"/g, '&quot;')
+               .replace(/'/g, '&#39;')
 }
 
 // set up events

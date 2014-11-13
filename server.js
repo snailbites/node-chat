@@ -30,7 +30,7 @@ io.sockets.on('connection', function(socket){
     socket.broadcast.emit('welcome', { pseudo : returnPseudo(socket) });
 
     socket.on('message', function(data){
-        var transmit = { date : new Date().toISOString(), pseudo : returnPseudo(socket), message : data };
+        var transmit = { date : new Date().toISOString(), pseudo : returnPseudo(socket), message : sanitizeHtml(data) };
         socket.broadcast.emit('message', transmit);
     });
 
@@ -59,4 +59,10 @@ function getAddr(socket){
 }
 function listUsers(socket){
 
+}
+function sanitizeHtml (string) {
+  return string.replace(/</g, '&lt;')
+               .replace(/>/g, '&gt;')
+               .replace(/"/g, '&quot;')
+               .replace(/'/g, '&#39;')
 }
