@@ -88,6 +88,11 @@ button {
         padding: 15px;
         .message {
             margin-bottom: 5px;
+            img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+            }
         }
         em {
             font-style: italic;

@@ -2,11 +2,16 @@ var socket = io.connect();
 
 // helper funcs
 function displayMsg(msg, pseudo){
+    // pattern for image path. string must have no spaces and end in a valid image extension
+    var imagePattern = new RegExp(/^([\S]+)\.(gif|jpg|jpeg|tiff|png)$/i);
+    var message = (imagePattern.test(msg))
+        ? '<img src="' + msg + '"/>'
+        : sanitizeHtml(msg);
     $('#chatEntries').find('.last').removeClass('last');
     $('#chatEntries').append(
         '<div class="message last"><span class="pseudo">'
         + pseudo
-        + '</span>: <span class="msg">' + sanitizeHtml(msg) + '</span></div>'
+        + '</span>: <span class="msg">' + message + '</span></div>'
     );
     $("#chatEntries").scrollTop($("#chatEntries")[0].scrollHeight);
 }
