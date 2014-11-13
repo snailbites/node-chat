@@ -1,7 +1,10 @@
 # Team Chat
 
 ## Getting Started
-You can start up the chat by using ``node server.js`` from the root directory
+
+Install dependencies: `npm install`
+
+Then start up the chat by using `node server.js` from the root directory
 
 ## Contributing
 Feel free to send a pull a request for anything. Here are a list of features that I would love to see added:
@@ -17,4 +20,3 @@ Feel free to send a pull a request for anything. Here are a list of features tha
 + **Styling Updates**:
     + Use alternate colors for alternate message rows
     + Make the page responsive
-
