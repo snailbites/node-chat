@@ -1,0 +1,29 @@
+{
+  "name": "chat",
+  "version": "0.0.0",
+  "description": "team chat",
+  "main": "server.js",
+  "dependencies": {
+    "cheerio": "^0.13.1",
+    "ejs": "^1.0.0",
+    "express": "^3.4.8",
+    "nconf": "^0.6.9",
+    "socket.io": "^0.9.16"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/snailbites/chat"
+  },
+  "keywords": [
+    "chat"
+  ],
+  "bugs": {
+    "url": "https://github.com/snailbites/chat/issues"
+  },
+  "homepage": "https://github.com/snailbites/chat"
+}
