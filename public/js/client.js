@@ -2,22 +2,12 @@ var socket = io.connect();
 
 // helper funcs
 function displayMsg(msg, pseudo){
-    // pattern for image path. string must have no spaces and end in a valid image extension
-    var imagePattern = new RegExp(/^([\S]+)\.(gif|jpg|jpeg|tiff|png)$/i);
-    var linkPattern = new RegExp("^(http|https)://", "i");
-    var message;
-    if(imagePattern.test(msg)){
-        message = '<img src="' + msg + '"/>';        
-    } else if (linkPattern.test(msg)) {
-        message = '<a href="' + msg + '" target="_blank">' + msg + '</a>';        
-    } else {        
-        message = sanitizeHtml(msg)
-    }
+    var formattedMsg = formatMsg(msg);
     $('#chatEntries').find('.last').removeClass('last');
     $('#chatEntries').append(
         '<div class="message last"><span class="pseudo">'
         + pseudo
-        + '</span>: <span class="msg">' + message + '</span></div>'
+        + '</span>: <span class="msg">' + formattedMsg + '</span></div>'
     );
     $("#chatEntries").scrollTop($("#chatEntries")[0].scrollHeight);
 }
@@ -34,8 +24,20 @@ function playSound(){
     sound.play();
 }
 
-function translateToLinks(msg){
-    // return msg with link
+function formatMsg(msg){
+    // string must have no spaces and end in a valid image extension
+    var imagePattern = new RegExp(/^([\S]+)\.(gif|jpg|jpeg|tiff|png)$/i);
+    // string must begin with http:// or https://
+    var linkPattern = new RegExp("^(http|https)://", "i");
+    var message;
+    if(imagePattern.test(msg)){
+        message = '<img src="' + msg + '"/>';        
+    } else if (linkPattern.test(msg)) {
+        message = '<a href="' + msg + '" target="_blank">' + msg + '</a>';        
+    } else {        
+        message = sanitizeHtml(msg)
+    }
+    return message;
 }
 
 // TODO: load this via browserify
