@@ -51,20 +51,22 @@ function sanitizeHtml (string) {
 function postMsgImage($form){
     var data = new FormData($form[0]);
     var url = $form.attr('action');
-        console.log(url);
-        var jqxhr = $.ajax({
+    //console.log(url);
+    var jqxhr = $.ajax({
         url: url,
         type: 'POST',
         data: data,
         processData: false,
         contentType: false
     })
+    .always(function(){
+        $form.find('input[type=file]').val('');
+    })
     .done(function(data){
         var message = data.message;
         console.log(data);
         socket.emit('message', data.url);
         displayMsg(data.url, 'Me');
-        $('#uploadImage input').val('');
     })
     .fail(function(){
         alert('post error');
@@ -117,11 +119,13 @@ $(function(){
     });
     $('#messageImage').submit(function(e){
         e.preventDefault();
-        postMsgImage($(this));
+        var $this = $(this);
+        if($this.find('input[type=file]').val() !== '') postMsgImage($this);
     });
     $('input').bind('keyup',function(e){
+        var $this = $(this);
         if(e.which === 13){
-            $('button').click();
+            $this.parents().find('button').click();
         }
     });
     $('#beep').click(function(e){
