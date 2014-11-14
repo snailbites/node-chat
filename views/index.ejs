@@ -16,9 +16,16 @@
         </aside>
         <article id="chat">
             <section id="chatEntries"></section>
-            <section id="chatControls">
+            <section id="chatControls" class="formSection">
                 <input id="messageInput" type="text" placeholder="Type your message and press enter">
                 <button id="submit">Send</button>
+            </section>
+            <section id="chatUploader" class="formSection">
+                <form action="/upload/message" method="post" enctype="multipart/form-data" id="messageImage">
+                    <input type="file" name="message_upload"/>
+                    <button type="submit">Post Image</button>
+                </form>
+            </section>
             <div class="clear"></div>
         </article>
 
