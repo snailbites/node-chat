@@ -88,6 +88,11 @@ input {
 }
 
 /* line 26, ../sass/screen.scss */
+input[type='file'] {
+  border: 0;
+}
+
+/* line 29, ../sass/screen.scss */
 button {
   text-transform: uppercase;
   height: 35px;
@@ -99,19 +104,19 @@ button {
   padding: 0 10px;
   color: #FFF;
 }
-/* line 36, ../sass/screen.scss */
+/* line 39, ../sass/screen.scss */
 button:hover {
   background-color: #777;
 }
 
-/* line 40, ../sass/screen.scss */
+/* line 43, ../sass/screen.scss */
 #userlist {
   padding: 50px 30px 0;
   color: #FFF;
   font: Times, serif;
   opacity: .75;
 }
-/* line 45, ../sass/screen.scss */
+/* line 48, ../sass/screen.scss */
 #userlist h2 {
   border-bottom: 1px solid #CCC;
   font-size: 18px;
@@ -119,13 +124,13 @@ button:hover {
   padding-bottom: 5px;
   margin-bottom: 10px;
 }
-/* line 52, ../sass/screen.scss */
+/* line 55, ../sass/screen.scss */
 #userlist p {
   font-size: 15px;
   margin-bottom: 5px;
 }
 
-/* line 58, ../sass/screen.scss */
+/* line 61, ../sass/screen.scss */
 #sidebar {
   min-height: 100%;
   height: 100%;
@@ -139,24 +144,28 @@ button:hover {
   -moz-box-shadow: black 2px 0 3px;
   box-shadow: black 2px 0 3px;
 }
-/* line 68, ../sass/screen.scss */
+/* line 71, ../sass/screen.scss */
 #sidebar .logo {
   padding: 30px;
   width: 185px;
 }
 
-/* line 73, ../sass/screen.scss */
+/* line 76, ../sass/screen.scss */
 #chat {
   font: 14px Georgia, serif;
   margin-left: 250px;
   padding: 20px;
   width: auto;
 }
-/* line 78, ../sass/screen.scss */
+/* line 81, ../sass/screen.scss */
 #chat .pseudo {
   font-weight: bold;
 }
-/* line 81, ../sass/screen.scss */
+/* line 84, ../sass/screen.scss */
+#chat .formSection {
+  margin-bottom: 10px;
+}
+/* line 87, ../sass/screen.scss */
 #chat #chatEntries {
   width: auto;
   border: 3px solid black;
@@ -166,17 +175,17 @@ button:hover {
   margin-bottom: 10px;
   padding: 15px;
 }
-/* line 89, ../sass/screen.scss */
+/* line 95, ../sass/screen.scss */
 #chat #chatEntries .message {
   margin-bottom: 5px;
 }
-/* line 91, ../sass/screen.scss */
+/* line 97, ../sass/screen.scss */
 #chat #chatEntries .message img {
   max-width: 100%;
   height: auto;
   display: block;
 }
-/* line 97, ../sass/screen.scss */
+/* line 103, ../sass/screen.scss */
 #chat #chatEntries em {
   font-style: italic;
 }

@@ -17,8 +17,23 @@ var userct = 0;
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.set('view options', { layout: false });
-app.configure(function(){ app.use(express.static(__dirname + '/public')); });
-app.get('/', function(req,res){ res.render('index.ejs'); });
+app.configure(function(){ 
+    app.use(express.static(__dirname + '/public'));
+    app.use(express.bodyParser()); // get information from html forms
+});
+
+// assemble controllers
+// all routing (gets/posts) goes in the ./controllers folder
+var controllerFiles = fs.readdirSync('controllers');
+controllerFiles.forEach(function (controllerFile) { 
+    if (controllerFile.indexOf('.js') === -1) {
+        return;
+    } else {
+        controllerFile = controllerFile.replace('.js', '');
+        var controller = require('./controllers/' + controllerFile);
+        controller.setup(app);
+    }
+});
 
 // start listening on port
 server.listen(3000, "0.0.0.0");
