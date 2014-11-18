@@ -54,7 +54,7 @@ a img {
   border: none;
 }
 
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
 
@@ -121,9 +121,9 @@ button:hover {
   width: 250px;
   float: left;
   background: #26201e url("/images/sidebar-bg.png") repeat 0 0;
-  -webkit-box-shadow: black 2px 0 3px;
-  -moz-box-shadow: black 2px 0 3px;
-  box-shadow: black 2px 0 3px;
+  -moz-box-shadow: #000 2px 0 3px;
+  -webkit-box-shadow: #000 2px 0 3px;
+  box-shadow: #000 2px 0 3px;
 }
 #sidebar .logo {
   padding: 30px;
@@ -162,3 +162,5 @@ button:hover {
 #chat #chatEntries em {
   font-style: italic;
 }
+
+/*# sourceMappingURL=screen.css.map */

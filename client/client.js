@@ -1,4 +1,5 @@
 var socket = io.connect();
+var sanitizeHtml = require('../modules/sanitize-html')
 
 // helper funcs
 function displayMsg(msg, pseudo){
@@ -31,21 +32,13 @@ function formatMsg(msg){
     var linkPattern = new RegExp("^(http|https)://", "i");
     var message;
     if(imagePattern.test(msg)){
-        message = '<img src="' + msg + '"/>';        
+        message = '<img src="' + msg + '"/>';
     } else if (linkPattern.test(msg)) {
-        message = '<a href="' + msg + '" target="_blank">' + msg + '</a>';        
-    } else {        
+        message = '<a href="' + msg + '" target="_blank">' + msg + '</a>';
+    } else {
         message = sanitizeHtml(msg)
     }
     return message;
-}
-
-// TODO: load this via browserify
-function sanitizeHtml (string) {
-  return string.replace(/</g, '&lt;')
-               .replace(/>/g, '&gt;')
-               .replace(/"/g, '&quot;')
-               .replace(/'/g, '&#39;')
 }
 
 function postMsgImage($form){

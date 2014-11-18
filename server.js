@@ -8,16 +8,17 @@ var http = require('http'),
     server = http.createServer(app),
     fs    = require('fs'),
     nconf = require('nconf'),
-    io = require('socket.io').listen(server, { log: false });
+    io = require('socket.io').listen(server, { log: false }),
+    sanitizeHtml = require('./modules/sanitize-html')
 
 // global vars
 var userct = 0;
-
+ 
 // set up views
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.set('view options', { layout: false });
-app.configure(function(){ 
+app.configure(function(){
     app.use(express.static(__dirname + '/public'));
     app.use(express.bodyParser()); // get information from html forms
 });
@@ -25,7 +26,7 @@ app.configure(function(){
 // assemble controllers
 // all routing (gets/posts) goes in the ./controllers folder
 var controllerFiles = fs.readdirSync('controllers');
-controllerFiles.forEach(function (controllerFile) { 
+controllerFiles.forEach(function (controllerFile) {
     if (controllerFile.indexOf('.js') === -1) {
         return;
     } else {
@@ -74,10 +75,4 @@ function getAddr(socket){
 }
 function listUsers(socket){
 
-}
-function sanitizeHtml (string) {
-  return string.replace(/</g, '&lt;')
-               .replace(/>/g, '&gt;')
-               .replace(/"/g, '&quot;')
-               .replace(/'/g, '&#39;')
 }

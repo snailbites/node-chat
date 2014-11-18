@@ -1,2 +1,10 @@
 node_modules
 .sass-cache
+
+# log files
+server.log
+grunt.log
+
+# generated resources (via `grunt`)
+public/css/stylesheets
+public/js

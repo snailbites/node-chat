@@ -1,7 +1,12 @@
-// only sass for now
 module.exports = function(grunt){
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    browserify : {
+      build : {
+        src : ['client/**/*.js'],
+        dest : 'public/js/client.js' 
+      }
+    },
     sass: {
       dist: {
         options: {
@@ -19,11 +24,17 @@ module.exports = function(grunt){
       css: {
         files: '**/*.scss',
         tasks: ['sass']
+      },
+      js : {
+        files: 'client/**/*.js',
+        tasks : ['browserify']
       }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.registerTask('default',['watch']);
+  grunt.loadNpmTasks('grunt-browserify');
+
+  grunt.registerTask('default', ['sass', 'browserify'])
 };
