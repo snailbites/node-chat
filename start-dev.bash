@@ -11,7 +11,7 @@ echo "$ARROW nohup supervisor -i public,client server > $SERVER_LOG &"
 nohup supervisor -i public,client server > $SERVER_LOG &
 
 echo $NEWLINE
-echo "Watching public source files for changes and sending putput to $GRUNT_LOG..."
+echo "Watching public source files for changes and sending output to $GRUNT_LOG..."
 echo "$ARROW nohup grunt watch > $GRUNT_LOG &"
 nohup grunt watch > grunt.log &
 
